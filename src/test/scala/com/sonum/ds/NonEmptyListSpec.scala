@@ -22,9 +22,19 @@ class NonEmptyListSpec extends ListSpec {
     nonEmptyInts.nonEmpty shouldBe true
   }
 
-  "A non emptu list" should "evaluate map op" in {
+  "A non empty list" should "evaluate map op" in {
 
     nonEmptyInts.map(_ * 2) shouldBe Cons(2, Cons(4, Cons(6, Nil)))
+  }
+
+  "A non empty list" should "prepend elements using :: op" in {
+
+    4 :: nonEmptyInts shouldBe Cons(4, Cons(1, Cons(2, Cons(3, Nil))))
+  }
+
+  "A non empty list" should "should return reversed list using reverse op" in {
+
+    nonEmptyInts.reverse shouldBe Cons(3, Cons(2, Cons(1, Nil)))
   }
 
 }
